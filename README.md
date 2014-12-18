@@ -1,0 +1,1 @@
+This project started as a tool to help visualize the Nordea tilitapahtumat info.
