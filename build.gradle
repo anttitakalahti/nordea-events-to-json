@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+mainClassName = 'parser.Parser'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+jar {
+    baseName = 'nordea-events-to-json'
+    version =  '0.1.0'
+}
+
+dependencies {
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.3.2'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.11'
+}

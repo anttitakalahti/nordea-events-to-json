@@ -1,8 +1,8 @@
-	.gradle/
-	.idea/
-	Tapahtumat_FI7814565000014684_20110101_20130331.txt
-	build/
-	gradle/
-	gradlew
-	nordea-events-to-json.iml
-	out/
+.gradle/
+.idea/
+Tapahtumat_FI7814565000014684_20110101_20130331.txt
+build/
+gradle/
+gradlew
+nordea-events-to-json.iml
+out/
