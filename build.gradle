@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'application'
 
-mainClassName = 'parser.Parser'
+mainClassName = 'parser.ParsedNordeaEventList'
 
 repositories {
     mavenLocal()
@@ -19,5 +19,5 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.11'
+    gradleVersion = '2.2.1'
 }
