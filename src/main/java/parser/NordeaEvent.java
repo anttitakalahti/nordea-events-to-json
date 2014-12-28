@@ -2,19 +2,6 @@ package parser;
 
 public class NordeaEvent {
 
-    private static final int FIELD_KIRJAUSPAIVA = 0;
-    private static final int FIELD_ARVOPAIVA = 1;
-    private static final int FIELD_MAKSUPAIVA = 2;
-    private static final int FIELD_MAARA = 3;
-    private static final int FIELD_SAAJA_OR_MAKSAJA = 4;
-    private static final int FIELD_TILINUMERO = 5;
-    private static final int FIELD_BIC = 6;
-    private static final int FIELD_TAPAHTUMA = 7;
-    private static final int FIELD_VIITE = 8;
-    private static final int FIELD_MAKSAJAN_VIITE = 9;
-    private static final int FIELD_KORTINNUMERO = 10;
-    private static final int FIELD_KUITTI = 11;
-
     private String rawLine;
     private String kirjauspäivä;
     private String arvopäivä;
@@ -28,6 +15,20 @@ public class NordeaEvent {
     private String maksajanViite;
     private String kortinnumero;
     private String kuitti;
+
+    public String getKirjauspäivä() { return kirjauspäivä; }
+    public String getArvopäivä() { return arvopäivä; }
+    public String getMaksupäivä() { return maksupäivä; }
+    public String getMäärä() { return määrä; }
+    public String getSaajaTaiMaksaja() { return saajaTaiMaksaja; }
+    public String getTilinumero() { return tilinumero; }
+    public String getBic() { return bic; }
+    public String getTapahtuma() { return tapahtuma; }
+    public String getViite() { return viite; }
+    public String getMaksajanViite() { return maksajanViite; }
+    public String getKortinnumero() { return kortinnumero; }
+    public String getKuitti() { return kuitti; }
+
 
     public NordeaEvent(String rawLine) {
         this.rawLine = rawLine;

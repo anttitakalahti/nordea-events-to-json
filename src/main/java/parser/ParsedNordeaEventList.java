@@ -1,6 +1,7 @@
 package parser;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.FileNotFoundException;
@@ -16,6 +17,10 @@ public class ParsedNordeaEventList {
     private String tilinumero;
     private List<String> headers;
     private List<NordeaEvent> nordeaEvents;
+
+    public String getTilinumero() { return tilinumero; }
+    public List<String> getHeaders() { return headers; }
+    public List<NordeaEvent> getNordeaEvents() { return nordeaEvents; }
 
     public void parse(String fileName) throws FileNotFoundException {
         List<String> lines = getLinesFromFile(fileName);
@@ -70,11 +75,8 @@ public class ParsedNordeaEventList {
         ParsedNordeaEventList parsedNordeaEventList = new ParsedNordeaEventList();
         parsedNordeaEventList.parse(hc);
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true);
-
-        StringWriter stringWriter = new StringWriter();
-        objectMapper.writeValue(stringWriter, parsedNordeaEventList);
-        System.out.println(stringWriter.toString());
+        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        String json = ow.writeValueAsString(parsedNordeaEventList);
+        System.out.println(json);
     }
 }

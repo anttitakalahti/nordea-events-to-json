@@ -15,7 +15,7 @@ jar {
 }
 
 dependencies {
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.3.2'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.4.4'
 }
 
 task wrapper(type: Wrapper) {
