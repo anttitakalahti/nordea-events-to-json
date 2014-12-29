@@ -70,7 +70,8 @@ public class ParsedNordeaEventList {
     }
 
     public static void main(String[] args) throws IOException {
-        String hc = "/Users/tade/Code/nordea-events-to-json/Tapahtumat_FI7814565000014684_20110101_20130331.txt";
+
+        String hc = "Tapahtumat_FI7814565000014684_20110101_20130331.txt";
 
         ParsedNordeaEventList parsedNordeaEventList = new ParsedNordeaEventList();
         parsedNordeaEventList.parse(hc);
