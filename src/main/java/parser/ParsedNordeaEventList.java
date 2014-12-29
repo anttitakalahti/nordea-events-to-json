@@ -2,17 +2,17 @@ package parser;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ParsedNordeaEventList {
+
+    private static final String SYSTEM_PROPERTY_TAPAHTUMALUETTELO = "tapahtumaluettelo";
 
     private String tilinumero;
     private List<String> headers;
@@ -22,7 +22,7 @@ public class ParsedNordeaEventList {
     public List<String> getHeaders() { return headers; }
     public List<NordeaEvent> getNordeaEvents() { return nordeaEvents; }
 
-    public void parse(String fileName) throws FileNotFoundException {
+    private void parse(String fileName) throws FileNotFoundException {
         List<String> lines = getLinesFromFile(fileName);
         parseNordeaEventsFromLines(lines);
     }
@@ -40,7 +40,7 @@ public class ParsedNordeaEventList {
             }
 
             if (line.startsWith("Tilinumero")) {
-                tilinumero = line;
+                tilinumero = line.split("\t")[1];
                 continue;
             }
 
@@ -71,10 +71,8 @@ public class ParsedNordeaEventList {
 
     public static void main(String[] args) throws IOException {
 
-        String hc = "Tapahtumat_FI7814565000014684_20110101_20130331.txt";
-
         ParsedNordeaEventList parsedNordeaEventList = new ParsedNordeaEventList();
-        parsedNordeaEventList.parse(hc);
+        parsedNordeaEventList.parse(System.getProperty(SYSTEM_PROPERTY_TAPAHTUMALUETTELO));
 
         ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
         String json = ow.writeValueAsString(parsedNordeaEventList);

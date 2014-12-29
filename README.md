@@ -8,11 +8,11 @@ that this is still a valid point of view.
 
 ## Prerequisites
 
-0. Get yourself a Nordea tapahtumalista file (and rename it to Tapahtumat_FI7814565000014684_20110101_20130331.txt)
+0. Get yourself a Nordea tapahtumalista file
 1. brew install gradle
 2. gradle wrapper
 3. chmod +x gradlew
 
 ## Run
 
-./gradlew run
+./gradlew run -Dtapahtumaluettelo="Tapahtumat_FI7814565000014684_20110101_20130331.txt"
